@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Cross Pharmacy | Your Local Health Hub</title>
+<style>
+  /* LAYOUT C: Full-width parallax-style header + horizontal icon-strip + bento grid + bottom CTA bar */
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Helvetica Neue',Arial,sans-serif;color:#2d2d2d;background:#fff}
+  .header-bar{background:#00796b;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;color:#fff}
+  .header-bar .pharm-name{font-size:1.4rem;font-weight:700;letter-spacing:1px}
+  .header-bar .pharm-name span{color:#b2dfdb}
+  .header-bar a{color:#b2dfdb;text-decoration:none;margin-left:2rem;font-size:.85rem;text-transform:uppercase;letter-spacing:1px}
+  .header-bar a:hover{color:#fff}
+
+  .hero-banner{background:linear-gradient(160deg,#004d40,#00695c,#00796b);min-height:70vh;display:flex;align-items:center;position:relative;overflow:hidden}
+  .hero-banner::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,0.03)}
+  .hero-banner::after{content:'';position:absolute;left:-50px;bottom:-80px;width:300px;height:300px;border-radius:50%;background:rgba(178,223,191,0.08)}
+  .hero-inner{max-width:650px;padding:4rem 5rem;color:#fff;position:relative;z-index:1}
+  .hero-inner .badge{display:inline-block;background:rgba(255,255,255,0.15);padding:.4rem 1rem;border-radius:20px;font-size:.75rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:1.5rem}
+  .hero-inner h1{font-size:3rem;line-height:1.15;margin-bottom:1rem;font-weight:300}
+  .hero-inner h1 strong{font-weight:700;color:#a5d6a7}
+  .hero-inner p{font-size:1.1rem;line-height:1.7;opacity:.9;margin-bottom:2rem}
+  .btn-primary{display:inline-block;background:#a5d6a7;color:#004d40;padding:1rem 2.5rem;text-decoration:none;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.85rem;transition:all .3s}
+  .btn-primary:hover{background:#81c784}
+
+  .icon-strip{background:#e0f2f1;display:flex;justify-content:center;gap:3rem;padding:2.5rem 2rem;flex-wrap:wrap}
+  .icon-item{text-align:center}
+  .icon-item .icon{font-size:2rem;margin-bottom:.5rem}
+  .icon-item .label{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:#00796b;font-weight:700}
+
+  .bento-section{padding:5rem 2rem;background:#fff}
+  .bento-section h2{text-align:center;font-size:2rem;color:#004d40;margin-bottom:3rem;font-weight:300}
+  .bento-section h2 strong{font-weight:700}
+  .bento-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:1.5rem}
+  .bento-card{background:#f5f5f5;padding:2rem;position:relative;overflow:hidden;transition:transform .3s}
+  .bento-card:hover{transform:translateY(-3px)}
+  .bento-card.wide{grid-column:span 2}
+  .bento-card.tall{grid-row:span 2;display:flex;flex-direction:column;justify-content:center}
+  .bento-card .card-icon{font-size:2rem;margin-bottom:1rem}
+  .bento-card h3{color:#004d40;font-size:1.2rem;margin-bottom:.8rem}
+  .bento-card p{color:#666;line-height:1.7;font-size:.95rem}
+  .bento-card .highlight{background:#00796b;color:#fff;padding:.5rem 1rem;display:inline-block;margin-top:1rem;font-size:.8rem;text-transform:uppercase;letter-spacing:1px}
+
+  .hours-section{background:#004d40;padding:4rem 2rem;color:#fff}
+  .hours-inner{max-width:800px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem}
+  .hours-text h2{font-size:1.8rem;margin-bottom:.5rem}
+  .hours-text p{opacity:.8;line-height:1.6}
+  .hours-table{background:rgba(255,255,255,0.1);padding:1.5rem 2rem;border-radius:4px}
+  .hours-table .row{display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,0.1);min-width:280px}
+  .hours-table .day{opacity:.7}
+  .hours-table .time{font-weight:600}
+
+  .cta-bar{background:#a5d6a7;padding:2.5rem 2rem;text-align:center}
+  .cta-bar h2{color:#004d40;font-size:1.6rem;margin-bottom:.5rem}
+  .cta-bar p{color:#004d40;opacity:.7;margin-bottom:1.5rem}
+  .cta-bar a.phone-btn{display:inline-block;background:#004d40;color:#a5d6a7;padding:1rem 3rem;text-decoration:none;font-size:1.1rem;font-weight:700;border-radius:4px;transition:background .3s}
+  .cta-bar a.phone-btn:hover{background:#00695c}
+
+  footer{background:#00251a;padding:2rem;text-align:center;color:#4a7a6d;font-size:.8rem;line-height:1.8}
+
+  @media(max-width:768px){
+    .hero-inner{padding:3rem 2rem}
+    .hero-inner h1{font-size:2rem}
+    .bento-grid{grid-template-columns:1fr}
+    .bento-card.wide,.bento-card.tall{grid-column:span 1;grid-row:span 1}
+    .hours-inner{flex-direction:column;text-align:center}
+    .icon-strip{gap:1.5rem}
+  }
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <div class="pharm-name">NEW CROSS <span>Pharmacy</span></div>
+  <div>
+    <a href="#services">Services</a>
+    <a href="#hours">Hours</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<section class="hero-banner">
+  <div class="hero-inner">
+    <div class="badge">NHS Accredited</div>
+    <h1>Your neighbourhood <strong>health partner</strong></h1>
+    <p>New Cross Pharmacy offers prescription dispensing, health checks, and expert advice — all under one roof, right in the heart of your community.</p>
+    <a href="tel:02078004284" class="btn-primary">Call 020 7800 4284</a>
+  </div>
+</section>
+
+<section class="icon-strip">
+  <div class="icon-item"><div class="icon">&#128138;</div><div class="label">Prescriptions</div></div>
+  <div class="icon-item"><div class="icon">&#129657;</div><div class="label">Health Checks</div></div>
+  <div class="icon-item"><div class="icon">&#128663;</div><div class="label">Delivery</div></div>
+  <div class="icon-item"><div class="icon">&#127973;</div><div class="label">NHS Services</div></div>
+  <div class="icon-item"><div class="icon">&#129514;</div><div class="label">Advice</div></div>
+</section>
+
+<section class="bento-section" id="services">
+  <h2>How we <strong>help</strong></h2>
+  <div class="bento-grid">
+    <div class="bento-card wide">
+      <div class="card-icon">&#128138;</div>
+      <h3>Prescription Dispensing</h3>
+      <p>Quick, accurate dispensing of NHS and private prescriptions. We also offer a repeat prescription collection service so you never run out of essential medication.</p>
+      <div class="highlight">Same-day dispensing</div>
+    </div>
+    <div class="bento-card tall" style="background:#e0f2f1">
+      <div class="card-icon">&#129657;</div>
+      <h3>Health Screenings</h3>
+      <p>Blood pressure checks, cholesterol testing, diabetes screening, and more — walk in or book an appointment.</p>
+    </div>
+    <div class="bento-card">
+      <div class="card-icon">&#128663;</div>
+      <h3>Free Delivery</h3>
+      <p>Home delivery for prescriptions and over-the-counter orders within a 3-mile radius. No minimum order required.</p>
+    </div>
+    <div class="bento-card">
+      <div class="card-icon">&#127973;</div>
+      <h3>NHS Services</h3>
+      <p>Flu vaccinations, emergency contraception, minor illness consultations, and smoking cessation support — all available on the NHS.</p>
+    </div>
+    <div class="bento-card wide">
+      <div class="card-icon">&#129514;</div>
+      <h3>Expert Advice</h3>
+      <p>Our qualified pharmacists are always on hand to answer questions about your medication, health concerns, or general wellbeing. No appointment necessary.</p>
+      <div class="highlight">Walk-in consultations</div>
+    </div>
+  </div>
+</section>
+
+<section class="hours-section" id="hours">
+  <div class="hours-inner">
+    <div class="hours-text">
+      <h2>Opening Hours</h2>
+      <p>Convenient hours to fit around your schedule. Drop in or call ahead.</p>
+    </div>
+    <div class="hours-table">
+      <div class="row"><span class="day">Monday - Friday</span><span class="time">9:00 - 18:30</span></div>
+      <div class="row"><span class="day">Saturday</span><span class="time">9:00 - 13:00</span></div>
+      <div class="row"><span class="day">Sunday</span><span class="time">Closed</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-bar" id="contact">
+  <h2>Need advice or a prescription?</h2>
+  <p>Our friendly team is here to help — just pick up the phone.</p>
+  <a href="tel:02078004284" class="phone-btn">&#9742; 020 7800 4284</a>
+</section>
+
+<footer>
+  <p>New Cross Pharmacy &bull; London SE14</p>
+  <p>NHS Community Pharmacy &bull; GPhC Registered</p>
+  <p>&copy; 2026 New Cross Pharmacy. All rights reserved.</p>
+</footer>
+</body>
+</html>
